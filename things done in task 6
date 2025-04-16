@@ -1,0 +1,61 @@
+Explore the data statistically and visually using describe(), value_counts(), histograms, boxplots, heatmaps, and more. Then compile everything into a Jupyter Notebook + PDF report with insights and summaries.
+
+Statistical and Categorical Overview
+Descriptive Statistics:
+Average Age: ~29.7 years (range: 0.42 to 80)
+
+Average Fare: ~32.2 (range: 0 to 512.33)
+
+Survival Rate: ~38.4% (342 out of 891)
+
+Missing Values:
+
+Age: 177 missing
+
+Cabin: 687 missing
+
+Embarked: 2 missing
+
+Categorical Distributions:
+Sex:
+
+Male: 577
+
+Female: 314
+
+Embarked:
+
+Southampton (S): 644
+
+Cherbourg (C): 168
+
+Queenstown (Q): 77
+
+Pclass:
+
+3rd Class: 491
+
+1st Class: 216
+
+2nd Class: 184
+
+Survived:
+
+Did not survive: 549
+
+Survived: 342
+
+OBSERVATIONS:
+Pairplot:
+Age vs Survived: Survivors tend to be slightly younger, especially among children.
+
+Fare vs Survived: Higher fares correlate with increased survival chances.
+
+Pclass: Passengers in 1st class had a visibly higher survival rate than those in 3rd.
+
+Correlation Heatmap:
+Survival positively correlates with Fare (0.26) and negatively with Pclass (-0.34).
+
+Age shows a weak negative correlation with survival.
+
+SibSp and Parch have very weak correlations with survival.

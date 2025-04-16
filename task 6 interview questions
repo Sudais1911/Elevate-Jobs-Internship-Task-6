@@ -1,0 +1,74 @@
+1. What is EDA and why is it important?
+EDA (Exploratory Data Analysis) is the process of analyzing datasets to summarize their main characteristics using statistics and visualizations. It helps in:
+
+Understanding the data structure and distribution
+
+Detecting missing values and outliers
+
+Finding patterns, relationships, and anomalies
+
+Guiding feature selection and model building
+Think of it as the foundation before any modeling or predictions.
+
+2. Which plots do you use to check correlation?
+To check correlation between numerical features, I use:
+
+Heatmap: Shows pairwise correlation coefficients using colors.
+
+Pairplot: Displays scatterplots and histograms to visualize relationships.
+
+Scatterplot: For direct observation of trends between two variables.
+
+3. How do you handle skewed data?
+Skewed data can be handled by:
+
+Log Transformation (e.g., np.log1p()): Reduces right skew.
+
+Box-Cox or Yeo-Johnson Transformation: Makes data more normal-like.
+
+Outlier Treatment: Removing or capping extreme values (e.g., IQR method).
+
+Scaling: Sometimes normalization or standardization helps reduce skew effect in modeling.
+
+4. How to detect multicollinearity?
+Multicollinearity means high correlation between independent variables. It can be detected using:
+
+Correlation Matrix: Check for variables with correlation > 0.8 or < -0.8.
+
+Variance Inflation Factor (VIF): VIF > 5 or 10 indicates multicollinearity.
+
+python
+Copy
+Edit
+from statsmodels.stats.outliers_influence import variance_inflation_factor
+5. What are univariate, bivariate, and multivariate analyses?
+Univariate Analysis: Analysis of a single variable
+E.g., histogram of Age
+
+Bivariate Analysis: Analysis between two variables
+E.g., scatterplot of Age vs Fare
+
+Multivariate Analysis: Involves three or more variables
+E.g., pairplot showing relationships between Age, Fare, Pclass, and Survived
+
+6. Difference between heatmap and pairplot?
+
+Feature	Heatmap	Pairplot
+Purpose	Shows numerical correlation	Visualizes pairwise relationships
+Type	Grid-based, color-coded matrix	Grid of plots (scatter/histograms)
+Output	One figure, compact	Multiple plots, more visual detail
+Use case	Quick check of correlations	Detect patterns, clusters, or outliers
+7. How do you summarize your insights?
+I summarize insights by:
+
+Writing key observations below each visual
+
+Highlighting trends, correlations, and anomalies
+
+Presenting a concise “Summary of Findings” section at the end:
+
+What features affect the target most?
+
+Which classes or groups behave differently?
+
+Any suggestions for further modeling or cleaning?

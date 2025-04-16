@@ -1,0 +1,133 @@
+# 🚢 Titanic Dataset - Exploratory Data Analysis Report
+
+**Objective:** Extract insights using visual and statistical exploration.  
+**Tools Used:** Python (Pandas, Matplotlib, Seaborn)  
+**Dataset:** Titanic survival data (891 rows, 12 columns)
+
+---
+
+## 📊 1. Dataset Overview
+
+```python
+df.info()
+df.describe(include='all')
+Total Rows: 891
+
+Total Columns: 12
+
+Target: Survived (0 = No, 1 = Yes)
+
+Key Columns:
+Pclass, Sex, Age, SibSp, Parch, Fare, Embarked
+
+Missing values:
+
+Age: 177
+
+Cabin: 687
+
+Embarked: 2
+
+📈 2. Univariate Analysis
+a. Age Distribution
+python
+Copy
+Edit
+sns.histplot(df['Age'].dropna(), bins=30, kde=True)
+📌 Observation: Most passengers were between 20-40 years old.
+
+b. Fare Distribution
+python
+Copy
+Edit
+sns.histplot(df['Fare'], bins=30, kde=True)
+📌 Observation: Majority of fares were below 100; a few high outliers exist.
+
+🧭 3. Categorical Analysis
+a. Sex and Survival
+python
+Copy
+Edit
+df['Sex'].value_counts()
+sns.countplot(x='Sex', hue='Survived', data=df)
+📌 Observation: Females had a higher survival rate than males.
+
+b. Passenger Class
+python
+Copy
+Edit
+df['Pclass'].value_counts()
+sns.countplot(x='Pclass', hue='Survived', data=df)
+📌 Observation: 1st class passengers were more likely to survive.
+
+c. Embarkation Port
+python
+Copy
+Edit
+df['Embarked'].value_counts()
+sns.countplot(x='Embarked', hue='Survived', data=df)
+📌 Observation: Most passengers boarded from Southampton (S).
+
+🔗 4. Bivariate Analysis
+a. Boxplot - Age vs Survived
+python
+Copy
+Edit
+sns.boxplot(x='Survived', y='Age', data=df)
+📌 Observation: Survivors were generally younger.
+
+b. Boxplot - Fare vs Survived
+python
+Copy
+Edit
+sns.boxplot(x='Survived', y='Fare', data=df)
+📌 Observation: Higher fare-paying passengers had a higher survival chance.
+
+c. Boxplot - Pclass vs Survived
+python
+Copy
+Edit
+sns.boxplot(x='Survived', y='Pclass', data=df)
+📌 Observation: 1st class had the highest survival rate.
+
+🔍 5. Multivariate Analysis
+a. Pairplot
+python
+Copy
+Edit
+sns.pairplot(df[['Survived','Pclass','Age','Fare','SibSp','Parch']].dropna(), hue='Survived')
+📌 Observation: Fare and Pclass show a visual correlation with survival.
+
+b. Correlation Heatmap
+python
+Copy
+Edit
+sns.heatmap(df.corr(), annot=True, cmap="coolwarm")
+📌 Observation:
+
+Survived positively correlated with Fare (0.26)
+
+Survived negatively correlated with Pclass (-0.34)
+
+c. Scatterplot - Fare vs Age
+python
+Copy
+Edit
+sns.scatterplot(x='Age', y='Fare', hue='Survived', data=df)
+📌 Observation: High fare-paying younger individuals had better survival outcomes.
+
+📝 6. Summary of Findings
+Women and children had higher survival rates.
+
+1st class passengers were more likely to survive.
+
+Higher fare correlates with better survival odds.
+
+Age and Fare show meaningful trends when compared with Survived.
+
+📌 7. Suggestions
+Consider imputing missing values (Age, Embarked) before modeling.
+
+Use Pclass, Sex, Fare, and Age as strong features in predictive models.
+
+Visual patterns suggest socio-economic status influenced survival.
